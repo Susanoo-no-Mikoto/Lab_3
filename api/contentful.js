@@ -8,3 +8,19 @@ exports.getCoursesList = () => {
         ] 
     };
 }
+
+/*exports.getCourseBasicsOfProgramming = () => {
+
+}
+
+exports.getCourseSoftwareEngineering = () => {
+
+}
+
+exports.getTestForTheCourseBasicsOfProgramming = () => {
+
+}
+
+exports. getTestSoftwareEngineering = () => {
+    
+}*/
