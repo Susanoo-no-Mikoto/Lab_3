@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/lapatkindi/Lab_3#readme",
   "dependencies": {
+    "contentful-management": "^7.19.1",
     "express": "^4.17.1",
     "googleapis": "^39.2.0",
     "react": "^17.0.2",

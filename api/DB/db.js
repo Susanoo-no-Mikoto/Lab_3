@@ -2,7 +2,8 @@
 
 const {google} = require('googleapis');
 const keys = require('./keys.json');
-const client = new google.auth.JWT(
+
+client = new google.auth.JWT(
     keys.client_email, 
     null, 
     keys.private_key,
@@ -19,14 +20,40 @@ client.authorize(function(err, tokens){
     }
 });
 
-async function gsrun(client){
+exports.gsrun = async (client) => {
     const gsapi = google.sheets({version: 'v4', auth: client});
     const opt = {
         spreadsheetId: '1UrKfcmupfJ2hyy7ISU9f3jrM_VMGw_AtRmz32TQ-Vfk',
-        range: 'Data1!A1:E5'
+        range: 'Data1!A2:E17'
     };
 
     let data = await gsapi.spreadsheets.values.get(opt);
     let dataArr = data.data.values;
-    console.log(dataArr);
+    var list = dataArr.map(function(dataArr){
+        let obj = dataArr.reduce(function(acc, cur, i){
+            acc[i] = cur;    
+            return acc;
+        },{});
+        let {
+            0: id,
+            1: login,
+            2: password,
+            3: eMail,
+            4: scoreTests
+        } = {...obj}
+        const newobj = Object.assign(
+            {},
+            {
+            id,
+            login,
+            password,
+            eMail,
+            scoreTests
+            }
+        );
+        return newobj; 
+    });
+    console.log(list); 
+    return list;
 }
+

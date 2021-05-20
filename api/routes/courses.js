@@ -1,10 +1,14 @@
 const contentfulAPI = require('../contentful');
 
-//обработчики 
+//const getCoursesList = require('../contentful');
+//console.log(ContentfulAPI);
+//обработчики
+const data = contentfulAPI.coursesList();
+console.log(data);
 
 exports.getAll = function(req, res){
     // как-то используем функцию contentfulAPI.getCoursesList() и, возможно, другие
-    const data = contentfulAPI.getCoursesList();
+    
     // CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
