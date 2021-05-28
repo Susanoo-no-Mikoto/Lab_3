@@ -12,15 +12,20 @@ client = new google.auth.JWT(
 
 client.authorize(function(err, tokens){
     if(err){
-        console.log(err);
+        //console.log(err);
         return;
     }else{
-        console.log('Всё супер!');
+        //console.log('Всё супер!');
         gsrun(client);
     }
 });
 
-exports.gsrun = async (client) => {
+exports.gs = async () => {
+    let qq = await gsrun();
+    return qq;
+}
+
+let gsrun = async (client) => {
     const gsapi = google.sheets({version: 'v4', auth: client});
     const opt = {
         spreadsheetId: '1UrKfcmupfJ2hyy7ISU9f3jrM_VMGw_AtRmz32TQ-Vfk',
