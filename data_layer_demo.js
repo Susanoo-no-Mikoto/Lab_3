@@ -1,10 +1,14 @@
-const DB = require ('./api/DB/db.js');
-//const ContentfulAPI = require ('./api/contentful.js');
+//const DB = require ('./api/DB/db.js');
+const { async } = require('regenerator-runtime');
+const ContentfulAPI = require ('./api/contentful.js');
+//let dataUsers = DB.gs();
+//console.log(dataUsers);
+let CoursesList = async () => {
+    let dataCoursesList = await ContentfulAPI.coursesList();
+    //console.log(dataCoursesList);
+    
+}
 
-let dataUsers = DB.gs();
-console.log(dataUsers);
-
-//let dataCoursesList = ContentfulAPI.ex();
 //let dataCoursesAll = ContentfulAPI.coursesAll();
-//console.log(dataCoursesList);
+
 //console.log(dataCoursesAll);

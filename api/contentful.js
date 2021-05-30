@@ -48,35 +48,42 @@ let getCourseDeveloperConsole = async (envi, courseDeveloperConsole) => {
     return course4;
 }
 
-exports.ex = async () => {
-    let qq = await coursesList();
-    return qq;
-}
-
-let coursesList = async () =>{
+exports.coursesList = async () =>{
     const envi = await Connect();
     let res = await getCoursesList(envi, '30NI1dtFXSqcCqsWcFI8q7');
-    console.log(res);
+    //console.log(res);
     return res; 
 }
 
-
-//exports.coursesList();
-
-/*(exports.coursesAll = async() =>{
+exports.course1 = async() =>{
     const envi = await Connect();
-    //console.log(env);
-    await getCourseIntroductionToJavaScript(envi, '2uF1ZRqq0CuEX3gikbBGae');
-        
-})();*/
+    let res = await getCourseIntroductionToJavaScript(envi, '2uF1ZRqq0CuEX3gikbBGae');
+    return res;   
+}
 
-/*
-    await getCourseReferencesAndSpecifications(envi, 'KNLntgvu4w7TZZSmMF6pI'),
-        await getCourseCodeEditors(envi, '6xp4qTDLVBpl9gdlmBL3lR'),
-        await getCourseDeveloperConsole(envi, '5NgwR9jzSrob7zRDN68tVk');
+exports.course2 = async() =>{
+    const envi = await Connect();
+    let res = await getCourseReferencesAndSpecifications(envi, 'KNLntgvu4w7TZZSmMF6pI');
+    return res;   
+}
+
+exports.course3 = async() =>{
+    const envi = await Connect();
+    let res = await getCourseCodeEditors(envi, '6xp4qTDLVBpl9gdlmBL3lR');
+    return res;   
+}
+
+exports.course4 = async() =>{
+    const envi = await Connect();
+    let res = await getCourseDeveloperConsole(envi, '5NgwR9jzSrob7zRDN68tVk');
+    return res;   
+}
+
+    
+        
+        
     
     
-*/
 
 /*
 
