@@ -1,5 +1,6 @@
 //https://docs.google.com/spreadsheets/d/1UrKfcmupfJ2hyy7ISU9f3jrM_VMGw_AtRmz32TQ-Vfk/edit#gid=0
 
+const e = require('express');
 const {google} = require('googleapis');
 const keys = require('./keys.json');
 
@@ -10,23 +11,8 @@ client = new google.auth.JWT(
     ['https://www.googleapis.com/auth/spreadsheets']
 );
 
-client.authorize(function(err, tokens){
-    if(err){
-        //console.log(err);
-        return;
-    }else{
-        //console.log('Всё супер!');
-        gsrun(client);
-    }
-});
-
-exports.gs = async () => {
-    let qq = await gsrun();
-    return qq;
-}
-
-let gsrun = async (client) => {
-    const gsapi = google.sheets({version: 'v4', auth: client});
+let gsrun = async (cl) => {
+    const gsapi = google.sheets({version: 'v4', auth: cl});
     const opt = {
         spreadsheetId: '1UrKfcmupfJ2hyy7ISU9f3jrM_VMGw_AtRmz32TQ-Vfk',
         range: 'Data1!A2:E17'
@@ -58,7 +44,11 @@ let gsrun = async (client) => {
         );
         return newobj; 
     });
-    console.log(list); 
+    //console.log(list); 
     return list;
 }
 
+exports.gg = async () => {
+    let e = await gsrun(client);
+    return e;
+}

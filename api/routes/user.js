@@ -1,6 +1,7 @@
 const DB = require('../DB/db.js');
 //console.log(DB);
 
-
-const data = DB.gsrun();
-console.log(data);
+let Users = async () => {
+    let dataUsers = await DB.gg();
+    console.log(dataUsers);
+}
