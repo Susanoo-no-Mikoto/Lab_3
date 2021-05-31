@@ -1,7 +1,9 @@
+const { response } = require('express');
 const DB = require('../DB/db.js');
 //console.log(DB);
 
-let Users = async () => {
+exports.Users = async (req, res) => {
     let dataUsers = await DB.gg();
-    console.log(dataUsers);
+    return dataUsers;
+    //console.log(dataUsers);
 }
