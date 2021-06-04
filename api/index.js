@@ -22,6 +22,7 @@ app.get('/courses', async (req, res) => {
   res.send(`<a href="/course1">${courses[0]}</a><br /> <a href="/course2">${courses[1]}</a><br /> <a href="/course3">${courses[2]}</a><br /> <a href="/course4">${courses[3]}</a><br />`);
 })
 
+
 app.get('/course1', async (req, res) => {
   const course1 = await ContentfulAPI.course1();
   res.send(course1);
@@ -29,9 +30,6 @@ app.get('/course1', async (req, res) => {
 
 app.get('/course2', async (req, res) => {
   const course2 = await ContentfulAPI.course2();
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-  res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.send(course2);
 })
 
@@ -39,6 +37,7 @@ app.get('/course3', async (req, res) => {
   const course3 = await ContentfulAPI.course3();
   res.send(course3);
 })
+
 app.get('/course4', async (req, res) => {
   const course4 = await ContentfulAPI.course4();
   res.send(course4);
